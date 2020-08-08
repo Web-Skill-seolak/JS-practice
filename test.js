@@ -20,9 +20,12 @@
 // <h1> 이름은 :  </h1>
 // <h1> prompt("이름을 입력하세요") </h1>
 
+let a = 10
+a = a + 1
+
 console.log(document.getElementById("id").innerHTML)
 let before = document.getElementById("id").innerHTML
 console.log(before+1)
 document.getElementById("id").innerHTML += "이름"
-// document.getElementById("id").innerHTML = document.getElementById("id").innerHTML + "이름"
+document.getElementById("id").innerHTML = document.getElementById("id").innerHTML + "이름"
 // document.getElementById("id").innerHTML = before + prompt("이름을 입력하세요")
