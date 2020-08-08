@@ -78,7 +78,7 @@ console.log(typeof false)
 console.log(Number(0))
 console.log(Number("0"))
 console.log(Number(false))
-
+console.log("아아아아아아아");
 
 
 
