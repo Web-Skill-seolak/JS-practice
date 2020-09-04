@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body onload="init()">
+<h3>마우스를 누른 채 드래깅하여 그림 그려 보세요</h3>
+<hr>
+<canvas id="canvas" style="border: 1px solid black; cursor : text"  width="400" height="300"></canvas>
+<script>
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var mouseX = 0;
+var mouseY = 0;
+var startStrX = 0;
+
+var undoList = [];
+
+function saveState() { 
+    undoList.push(canvas.toDataURL());
+}
+
+function undo(){
+    undoList.pop();
+
+    
+}
+
+canvas.addEventListener("click",function(e){
+    mouseX = e.pageX - canvas.offsetLeft;
+    mouseY = e.pageY - canvas.offsetTop;
+    startStrX = mouseX;
+
+    return false;
+}, false);
+
+document.addEventListener("keydown",function(e){
+    ctx.font = "16px Arial";
+    if(e.keyCode = 13){
+        mouseX = startStrX;
+        mouseY += 20;
+    } else{
+        ctx.fillText(e.key, mouseX, mouseY);
+        mouseX += ctx.measureText(e.key).width;
+    }
+    
+
+    return false;
+}, false);
+</script>
+</body>
+</html>
